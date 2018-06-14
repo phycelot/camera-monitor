@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1030</width>
-    <height>647</height>
+    <height>772</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,74 +16,219 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
-     <widget class="QGroupBox" name="selectedCameraGroup">
-      <property name="title">
-       <string>Selected Camera</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <widget class="QMdiArea" name="mdiArea_2"/>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="Line" name="line">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
      <widget class="QGroupBox" name="camerasGroup">
       <property name="title">
        <string>Cameras</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="1">
-        <widget class="QGroupBox" name="groupBox_2">
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="cameraGroup">
          <property name="title">
-          <string>Camera 2</string>
+          <string>Camera 1</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QMdiArea" name="mdiArea_3"/>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="1" column="5">
+           <widget class="QProgressBar" name="statutProgress">
+            <property name="value">
+             <number>24</number>
+            </property>
+            <property name="textVisible">
+             <bool>false</bool>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QToolButton" name="toolButton">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="5">
+           <widget class="QMdiArea" name="mdiArea"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="streamButton">
+            <property name="text">
+             <string>Stream</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="recButton">
+            <property name="text">
+             <string>Rec</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLabel" name="statutLabel">
+            <property name="text">
+             <string>Statut :</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QGroupBox" name="groupBox">
+       <item row="0" column="1">
+        <widget class="QGroupBox" name="cameraGroup_2">
          <property name="title">
-          <string>Camera 1</string>
+          <string>Camera 2</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QMdiArea" name="mdiArea"/>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="5">
+           <widget class="QProgressBar" name="statutProgress_2">
+            <property name="value">
+             <number>24</number>
+            </property>
+            <property name="textVisible">
+             <bool>false</bool>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QToolButton" name="toolButton_2">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="5">
+           <widget class="QMdiArea" name="mdiArea_2"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="streamButton_2">
+            <property name="text">
+             <string>Stream</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="recButton_2">
+            <property name="text">
+             <string>Rec</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLabel" name="statutLabel_2">
+            <property name="text">
+             <string>Statut :</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QGroupBox" name="groupBox_3">
+        <widget class="QGroupBox" name="cameraGroup_3">
          <property name="title">
           <string>Camera 3</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QMdiArea" name="mdiArea_4"/>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="1" column="5">
+           <widget class="QProgressBar" name="statutProgress_3">
+            <property name="value">
+             <number>24</number>
+            </property>
+            <property name="textVisible">
+             <bool>false</bool>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QToolButton" name="toolButton_3">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="5">
+           <widget class="QMdiArea" name="mdiArea_3"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="streamButton_3">
+            <property name="text">
+             <string>Stream</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="recButton_3">
+            <property name="text">
+             <string>Rec</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLabel" name="statutLabel_3">
+            <property name="text">
+             <string>Statut :</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QGroupBox" name="groupBox_4">
+        <widget class="QGroupBox" name="cameraGroup_4">
          <property name="title">
           <string>Camera 4</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QMdiArea" name="mdiArea_5"/>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="1" column="5">
+           <widget class="QProgressBar" name="statutProgress_4">
+            <property name="value">
+             <number>24</number>
+            </property>
+            <property name="textVisible">
+             <bool>false</bool>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QToolButton" name="toolButton_4">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="5">
+           <widget class="QMdiArea" name="mdiArea_4"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="streamButton_4">
+            <property name="text">
+             <string>Stream</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QPushButton" name="recButton_4">
+            <property name="text">
+             <string>Rec</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLabel" name="statutLabel_4">
+            <property name="text">
+             <string>Statut :</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -137,6 +282,9 @@
    </property>
   </action>
   <action name="actionAdd">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Add</string>
    </property>

@@ -1,3 +1,10 @@
+//-------------------------
+//
+// file created by Prouteau Antonin
+// 14/06/2018
+//
+//-------------------------
+
 #include "mainwindow.h"
 #include <QApplication>
 

@@ -1,3 +1,10 @@
+//-------------------------
+//
+// file created by Prouteau Antonin
+// 14/06/2018
+//
+//-------------------------
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -17,6 +24,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void init();
 };
 
 #endif // MAINWINDOW_H
