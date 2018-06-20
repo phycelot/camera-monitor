@@ -8,6 +8,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "usefull.h"
+
+#include "camera_ihm.h"
+
 #include <QTimer>
 #include <QDebug>
 #include <QDate>
@@ -26,19 +29,21 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::init()
 {
     QTimer::singleShot(100, this, SLOT(showFullScreen()));
-    QString text="statut";
-    qDebug() << ui->statutProgress->format();
-    ui->statutProgress->setValue(12);
-    ui->statutProgress->setTextVisible(true);
-    QLabel *label = ui->statutProgress->findChild<QLabel *>();
-    if (label)
-    {
-        label->setText(text);
-    }
-    //    ui->statutProgress->setFormat(text);
-    //    ui->statutProgress_2->setFormat(text);
-    //    ui->statutProgress_3->setFormat(text);
-    //    ui->statutProgress_4->setFormat(text)
+
+    camera_ihm *one = new camera_ihm(1);
+    camera_ihm *two = new camera_ihm(2);
+    camera_ihm *three = new camera_ihm(3);
+    camera_ihm *four = new camera_ihm(4);
+
+//    one->setStatut("cours toujours");
+//    qDebug() << one->getStatut();
+//    two->setStatut("reste tranquille");
+#if 1
+    ui->cameraGroupLayout->addWidget(one,0,0);
+    ui->cameraGroupLayout->addWidget(two,0,1);
+    ui->cameraGroupLayout->addWidget(three,1,0);
+    ui->cameraGroupLayout->addWidget(four,1,1);
+#endif
 }
 
 MainWindow::~MainWindow()
