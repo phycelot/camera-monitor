@@ -12,53 +12,55 @@ camera_ihm::camera_ihm(int id,QWidget *parent)
     : QWidget(parent){
     this->id=id;
     //init the group box
-    //initWidgets();
+    initWidgets();
 
     QString str = "Camera ";
     str.append(QString::number(id));
-    CameraGroupBox->setTitle(str);
+    this->CameraGroupBox->setTitle(str);
 
-    toolButton->setText("...");
+    this->toolButton->setText("...");
 
-    streamButton->setText("stream");
+    this->streamButton->setText("stream");
 
-    recButton->setText("rec");
+    this->recButton->setText("rec");
 
-    statutProgressBar->setValue(0);
-    statutProgressBar->setTextVisible(true);
-    statutProgressBar->setFormat("Initialisation"); //use fonction
+    this->statutLabel->setText("Statut :");
 
+    this->statutProgressBar->setValue(0);
+//    this->statutProgressBar->setTextVisible(true);
+//    this->statutProgressBar->setFormat("Initialisation"); //use fonction
+    this->setStatut("Initialisation");
     //init cameragroupbox layout
-    //QGridLayout *camera_global_layout = new QGridLayout;
-    //QGridLayout *final_layout = new QGridLayout;
+    camera_global_layout = new QGridLayout;
+    final_layout = new QGridLayout;
 
     configureLayout();
 
-    setLayout(final_layout);
+    setLayout(this->final_layout);
 }
 
 void camera_ihm::initWidgets()
 {
-    QGroupBox *CameraGroupBox = new QGroupBox();
-    QToolButton *toolButton = new QToolButton;  //add action
-    QPushButton *streamButton = new QPushButton;  //add action
-    QPushButton *recButton = new QPushButton;    //add action
-    QLabel *statutLabel = new QLabel("Statut :");
-    QProgressBar *statutProgressBar = new QProgressBar; //add action //color modif //value modif //text modif
-    QLabel *videoLabel = new QLabel;
+    CameraGroupBox = new QGroupBox();
+    toolButton = new QToolButton;  //add action
+    streamButton = new QPushButton;  //add action
+    recButton = new QPushButton;    //add action
+    statutLabel = new QLabel();
+    statutProgressBar = new QProgressBar; //add action //color modif //value modif //text modif
+    videoLabel = new QLabel;
 }
 
 void camera_ihm::configureLayout()
 {
-    camera_global_layout->addWidget(toolButton,0,0);
-    camera_global_layout->addWidget(streamButton,0,1);
-    camera_global_layout->addWidget(recButton,0,2);
-    camera_global_layout->addWidget(statutLabel,0,3);
-    camera_global_layout->addWidget(statutProgressBar,0,4);
-    camera_global_layout->addWidget(videoLabel,1,0);
+    this->camera_global_layout->addWidget(toolButton,0,0);
+    this->camera_global_layout->addWidget(streamButton,0,1);
+    this->camera_global_layout->addWidget(recButton,0,2);
+    this->camera_global_layout->addWidget(statutLabel,0,3);
+    this->camera_global_layout->addWidget(statutProgressBar,0,4);
+    this->camera_global_layout->addWidget(videoLabel,1,0);
 
-    CameraGroupBox->setLayout(camera_global_layout);
-    final_layout->addWidget(CameraGroupBox);
+    this->CameraGroupBox->setLayout(camera_global_layout);
+    this->final_layout->addWidget(CameraGroupBox);
 }
 
 
