@@ -13,12 +13,12 @@ class camera_ihm: public QWidget
 {
     Q_OBJECT
 public:
-    //camera_ihm(int id,QWidget *parent=0);
     camera_ihm(QHostAddress hostAddress,QWidget *parent=0);
     void setStatut(const QString s);
     void setStatut(const int i=0);
     QString getStatut();
     void setImage(QPixmap pix);
+    void setImage(QImage image);
     ~camera_ihm();
     int id;
     QHostAddress hostAddress;

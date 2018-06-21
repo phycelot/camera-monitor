@@ -8,16 +8,6 @@
 #include <QLabel>
 #include <QProgressBar>
 
-//camera_ihm::camera_ihm(int id,QWidget *parent)
-//    : QWidget(parent){
-//    this->id=id;
-
-//    initWidgets();
-//    initLayout();
-//    configureLayout();
-
-//    setLayout(final_layout);
-//}
 int camera_ihm::c_id=0;
 
 camera_ihm::camera_ihm(QHostAddress hostAddress,QWidget *parent)
@@ -133,6 +123,14 @@ QString camera_ihm::getStatut()
 
 void camera_ihm::setImage(QPixmap pix)
 {
+    videoLabel->setPixmap(pix);
+}
+
+void camera_ihm::setImage(QImage image)
+{
+    int tempWidth = videoLabel->geometry().width();
+    int tempHeight = videoLabel->geometry().height();
+    QPixmap pix = QPixmap::fromImage(image.scaled(tempWidth, tempHeight));
     videoLabel->setPixmap(pix);
 }
 
