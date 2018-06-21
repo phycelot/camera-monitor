@@ -29,6 +29,8 @@ private:
     Ui::MainWindow *ui;
     void Disp(QImage image,int imageType);
     void init();
+    void addCamera(QHostAddress hostAddress);
+    void manageIhmPosition();
 
 };
 

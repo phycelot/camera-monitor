@@ -7,20 +7,24 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QProgressBar>
+#include <QHostAddress>
 
 class camera_ihm: public QWidget
 {
     Q_OBJECT
 public:
-    camera_ihm(int id,QWidget *parent=0);
+    //camera_ihm(int id,QWidget *parent=0);
+    camera_ihm(QHostAddress hostAddress,QWidget *parent=0);
     void setStatut(const QString s);
     void setStatut(const int i=0);
     QString getStatut();
     void setImage(QPixmap pix);
     ~camera_ihm();
     int id;
+    QHostAddress hostAddress;
 
 private:
+    static int c_id;
     void initWidgets();
     void configureLayout();
     void initLayout();

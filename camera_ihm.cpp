@@ -8,10 +8,23 @@
 #include <QLabel>
 #include <QProgressBar>
 
-camera_ihm::camera_ihm(int id,QWidget *parent)
-    : QWidget(parent){
-    this->id=id;
+//camera_ihm::camera_ihm(int id,QWidget *parent)
+//    : QWidget(parent){
+//    this->id=id;
 
+//    initWidgets();
+//    initLayout();
+//    configureLayout();
+
+//    setLayout(final_layout);
+//}
+int camera_ihm::c_id=0;
+
+camera_ihm::camera_ihm(QHostAddress hostAddress,QWidget *parent)
+    : QWidget(parent){
+    this->hostAddress=hostAddress;
+    id=c_id;
+    c_id+=1;
     initWidgets();
     initLayout();
     configureLayout();

@@ -16,6 +16,8 @@
 #include <QDir>
 #include <QVector>
 
+#include <QHostAddress>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -25,31 +27,44 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QTimer::singleShot(100, this, SLOT(showFullScreen()));
     //init();
-    camera_ihm *one = new camera_ihm(1);
-    list_camera_ihm.push_back(one);
-    list_camera_ihm.push_back(new camera_ihm(2));
-    qDebug() << list_camera_ihm[0]->id;
+    QHostAddress hostAddress;
+    addCamera(hostAddress);
+}
+
+void MainWindow::addCamera(QHostAddress hostAddress)
+{
+    list_camera_ihm.push_back(new camera_ihm(hostAddress));
+    manageIhmPosition();
+}
+
+void MainWindow::manageIhmPosition()
+{
+    int len = list_camera_ihm.length();
+    if(len>0)
+    {
+        ui->cameraGroupLayout->addWidget(list_camera_ihm[0],0,0);
+        if(len>1)
+        {
+           ui->cameraGroupLayout->addWidget(list_camera_ihm[1],0,1);
+           if(len>2)
+           {
+               ui->cameraGroupLayout->addWidget(list_camera_ihm[2],1,0);
+               if(len>3)
+               {
+                   ui->cameraGroupLayout->addWidget(list_camera_ihm[3],1,1);
+               }
+           }
+        }
+    }
+}
+
+void MainWindow::init()
+{
 }
 
 void MainWindow::init()
 {
 
-
-    camera_ihm *one = new camera_ihm(1);
-    camera_ihm *two = new camera_ihm(2);
-    camera_ihm *three = new camera_ihm(3);
-    camera_ihm *four = new camera_ihm(4);
-
-#if 1
-    ui->cameraGroupLayout->addWidget(one,0,0);
-    ui->cameraGroupLayout->addWidget(two,0,1);
-    ui->cameraGroupLayout->addWidget(three,1,0);
-    ui->cameraGroupLayout->addWidget(four,1,1);
-#endif
-    one->setStatut(-1);
-    two->setStatut();
-    three->setStatut(1);
-    four->setStatut(2);
 }
 
 void MainWindow::Disp(QImage image,int imageType)
