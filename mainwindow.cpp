@@ -7,7 +7,6 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "usefull.h"
 
 #include "camera_ihm.h"
 
@@ -15,20 +14,26 @@
 #include <QDebug>
 #include <QDate>
 #include <QDir>
+#include <QVector>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    qInstallMessageHandler(usefull::myMessageOutput); // Install the handler
-    qDebug() << __func__;
     ui->setupUi(this);
-    init();
+    qDebug() << __func__;
+
+    QTimer::singleShot(100, this, SLOT(showFullScreen()));
+    //init();
+    camera_ihm *one = new camera_ihm(1);
+    list_camera_ihm.push_back(one);
+    list_camera_ihm.push_back(new camera_ihm(2));
+    qDebug() << list_camera_ihm[0]->id;
 }
 
 void MainWindow::init()
 {
-    QTimer::singleShot(100, this, SLOT(showFullScreen()));
+
 
     camera_ihm *one = new camera_ihm(1);
     camera_ihm *two = new camera_ihm(2);
@@ -45,6 +50,21 @@ void MainWindow::init()
     two->setStatut();
     three->setStatut(1);
     four->setStatut(2);
+}
+
+void MainWindow::Disp(QImage image,int imageType)
+{
+//    for (int i=0;i<list_camera_ihm.length();i++)
+//    {
+//        if (true)//testsi c'est la bonne image/camera
+//        {
+//            int tempWidth = 100;
+//            int tempHeight = 100;
+//            QPixmap pix = QPixmap::fromImage(image.scaled(tempWidth, tempHeight));
+
+//            //list_camera_ihm[i]->setImage(pix);
+//        }
+//    }
 }
 
 MainWindow::~MainWindow()

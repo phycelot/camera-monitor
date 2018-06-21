@@ -7,8 +7,10 @@
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <QVector>
 #include <QMainWindow>
+
+#include "camera_ihm.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,8 +25,11 @@ public:
     ~MainWindow();
 
 private:
+    QVector<camera_ihm*> list_camera_ihm;
     Ui::MainWindow *ui;
+    void Disp(QImage image,int imageType);
     void init();
+
 };
 
 #endif // MAINWINDOW_H

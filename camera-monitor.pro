@@ -14,12 +14,10 @@ TEMPLATE = app
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-        usefull.cpp \
     camera_ihm.cpp
 
 HEADERS += \
         mainwindow.h \
-        usefull.h \
     camera_ihm.h
 
 FORMS += \
