@@ -35,15 +35,16 @@ void MainWindow::init()
     camera_ihm *three = new camera_ihm(3);
     camera_ihm *four = new camera_ihm(4);
 
-//    one->setStatut("cours toujours");
-//    qDebug() << one->getStatut();
-//    two->setStatut("reste tranquille");
 #if 1
     ui->cameraGroupLayout->addWidget(one,0,0);
     ui->cameraGroupLayout->addWidget(two,0,1);
     ui->cameraGroupLayout->addWidget(three,1,0);
     ui->cameraGroupLayout->addWidget(four,1,1);
 #endif
+    one->setStatut(-1);
+    two->setStatut();
+    three->setStatut(1);
+    four->setStatut(2);
 }
 
 MainWindow::~MainWindow()

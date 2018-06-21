@@ -20,7 +20,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
     if (false)
     {
         //create logfile name
-        QString fileName = "enibar_display_log_"+QDate::currentDate().toString("yyyy.MM.dd").replace(".","-")+".log";
+        QString fileName = "log_"+QDate::currentDate().toString("yyyy.MM.dd").replace(".","-")+".log";
         //test if logfile already exist on the right directory
         QString path("./log/");
         QDir dir;

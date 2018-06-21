@@ -11,32 +11,12 @@
 camera_ihm::camera_ihm(int id,QWidget *parent)
     : QWidget(parent){
     this->id=id;
-    //init the group box
+
     initWidgets();
-
-    QString str = "Camera ";
-    str.append(QString::number(id));
-    this->CameraGroupBox->setTitle(str);
-
-    this->toolButton->setText("...");
-
-    this->streamButton->setText("stream");
-
-    this->recButton->setText("rec");
-
-    this->statutLabel->setText("Statut :");
-
-    this->statutProgressBar->setValue(0);
-//    this->statutProgressBar->setTextVisible(true);
-//    this->statutProgressBar->setFormat("Initialisation"); //use fonction
-    this->setStatut("Initialisation");
-    //init cameragroupbox layout
-    camera_global_layout = new QGridLayout;
-    final_layout = new QGridLayout;
-
+    initLayout();
     configureLayout();
 
-    setLayout(this->final_layout);
+    setLayout(final_layout);
 }
 
 void camera_ihm::initWidgets()
@@ -48,31 +28,94 @@ void camera_ihm::initWidgets()
     statutLabel = new QLabel();
     statutProgressBar = new QProgressBar; //add action //color modif //value modif //text modif
     videoLabel = new QLabel;
+    initWidgetsValue();
+}
+
+void camera_ihm::initWidgetsValue()
+{
+    QString str = "Camera ";
+    str.append(QString::number(id));
+    CameraGroupBox->setTitle(str);
+
+    toolButton->setText("...");
+    toolButton->setEnabled(false);
+
+    streamButton->setText("stream");
+    streamButton->setEnabled(false);
+
+    recButton->setText("rec");
+    recButton->setEnabled(false);
+
+    statutLabel->setText("Statut :");
+
+    statutProgressBar->setValue(0);
+    setStatut(1);
+}
+
+void camera_ihm::initLayout()
+{
+    camera_global_layout = new QGridLayout;
+    final_layout = new QGridLayout;
 }
 
 void camera_ihm::configureLayout()
 {
-    this->camera_global_layout->addWidget(toolButton,0,0);
-    this->camera_global_layout->addWidget(streamButton,0,1);
-    this->camera_global_layout->addWidget(recButton,0,2);
-    this->camera_global_layout->addWidget(statutLabel,0,3);
-    this->camera_global_layout->addWidget(statutProgressBar,0,4);
-    this->camera_global_layout->addWidget(videoLabel,1,0);
+    camera_global_layout->addWidget(toolButton,0,0);
+    camera_global_layout->addWidget(streamButton,0,1);
+    camera_global_layout->addWidget(recButton,0,2);
+    camera_global_layout->addWidget(statutLabel,0,3);
+    camera_global_layout->addWidget(statutProgressBar,0,4);
+    camera_global_layout->addWidget(videoLabel,1,0);
 
-    this->CameraGroupBox->setLayout(camera_global_layout);
-    this->final_layout->addWidget(CameraGroupBox);
+    CameraGroupBox->setLayout(camera_global_layout);
+    final_layout->addWidget(CameraGroupBox);
 }
-
 
 void camera_ihm::setStatut(const QString s)
 {
-    this->statutProgressBar->setTextVisible(true);
-    this->statutProgressBar->setFormat(s);
+    statutProgressBar->setTextVisible(true);
+    statutProgressBar->setFormat(s);
+}
+
+void camera_ihm::setStatut(const int i)
+{
+    statutProgressBar->setTextVisible(true);
+    QString text="";
+    QPalette p = palette();
+    int value=0;
+    switch (i) {
+    case -1:
+        text="error";
+        value=100;
+        p.setColor(QPalette::Highlight, Qt::darkRed);
+        break;
+    case 0:
+        text="standby";
+        value=100;
+        p.setColor(QPalette::Highlight, Qt::gray);
+        break;
+    case 1:
+        text="initialisation";
+        value=100;
+        //p.setColor(QPalette::Highlight, Qt::darkBlue);
+        break;
+    case 2:
+        text="work";
+        value=100;
+        p.setColor(QPalette::Highlight, Qt::darkGreen);
+        break;
+    default:
+        break;
+    }
+
+    statutProgressBar->setValue(value);
+    statutProgressBar->setPalette(p);
+    statutProgressBar->setFormat(text);
 }
 
 QString camera_ihm::getStatut()
 {
-    return this->statutProgressBar->format();
+    return statutProgressBar->format();
 }
 
 void camera_ihm::setImage(QPixmap pix)
